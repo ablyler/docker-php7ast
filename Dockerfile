@@ -80,6 +80,8 @@ RUN apk --update add bash \
 	./configure && \
 	make -j3 && \
 	make install && \
+	cd $HOME && \
+	rm -Rf php-ast-0.1.1 && \
 	apk del re2c \ 
 	bison \
 	curl-dev \
@@ -103,10 +105,4 @@ RUN cd $HOME && \
 	cd $HOME/phan && \
 	curl -sS https://getcomposer.org/installer | php && \
 	php composer.phar install && \
-	ln -s $HOME/phan/phan /usr/bin/phan && \
-	rm -Rf php-ast-0.1.1
-
-
-CMD ["bash"]
-
-ENTRYPOINT ["/bin/sh", "-c"]
+	ln -s $HOME/phan/phan /usr/bin/phan

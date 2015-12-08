@@ -99,10 +99,3 @@ RUN apk --update add bash \
 	tar \
 	make \
 	autoconf
-
-RUN cd $HOME && \
-	git clone https://github.com/ablyler/phan.git && \
-	cd $HOME/phan && \
-	curl -sS https://getcomposer.org/installer | php && \
-	php composer.phar install && \
-	ln -s $HOME/phan/phan /usr/bin/phan

@@ -36,9 +36,9 @@ RUN apk --update add bash \
 	re2c \
 	bison \
 	curl-dev && \
-	wget -O php-7.0.1.tar.gz https://php.net/get/php-7.0.1.tar.gz/from/this/mirror && \
-	tar -zxvf php-7.0.1.tar.gz && \
-	cd php-7.0.1 && \
+	wget -O php-7.0.3.tar.gz https://php.net/get/php-7.0.3.tar.gz/from/this/mirror && \
+	tar -zxvf php-7.0.3.tar.gz && \
+	cd php-7.0.3 && \
 	./configure \
     --prefix=/usr \
     --with-config-file-path=/etc \
@@ -72,7 +72,7 @@ RUN apk --update add bash \
     --with-kerberos=shared,/usr/lib && \
 	make -j3 && \
 	make install && \
-	rm -Rf php-7.0.1 && \
+	rm -Rf php-7.0.3 && \
 	wget -O v0.1.1.tar.gz https://github.com/nikic/php-ast/archive/v0.1.1.tar.gz && \
 	tar -zxvf v0.1.1.tar.gz && \
 	cd php-ast-0.1.1 && \

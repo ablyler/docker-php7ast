@@ -3,9 +3,39 @@ FROM alpine:3.3
 ADD repositories /etc/apk
 
 RUN apk --update add bash \
+	wget \
+	curl \
+	git \
+	grep \
 	php7 \
+	php7-bcmath \
 	php7-curl \
-	php7-opcache
+	php7-intl \
+	php7-json \
+	php7-gettext \
+	php7-gd \
+	php7-ldap \
+	php7-mbstring \
+	php7-mcrypt \
+	php7-mysqlnd \
+	php7-opcache \
+	php7-openssl \
+	php7-pgsql \
+	php7-phar \
+	php7-pdo_mysql \
+	php7-pdo_pgsql \
+	php7-pdo_sqlite \
+	php7-session \
+	php7-soap \
+	php7-sockets \
+	php7-sqlite3 \
+	php7-tidy \
+	php7-xsl \
+	php7-xml \
+	php7-xmlreader \
+	php7-xmlrpc \
+	php7-zip \
+	php7-zlib
 
 RUN apk --update add bash \
 	autoconf \

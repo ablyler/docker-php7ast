@@ -1,4 +1,4 @@
-FROM alpine:3.3
+FROM alpine:3.6
 
 ADD repositories /etc/apk
 
@@ -37,21 +37,22 @@ RUN apk --update add bash \
 	php7-zip \
 	php7-zlib
 
+# In alpine 3.6, /usr/bin/php is php 7.1.x
+
 RUN apk --update add bash \
 	autoconf \
 	make \
 	build-base \
 	php7-dev && \
-	ln -s /usr/bin/php7 /usr/bin/php && \
-	wget -O v0.1.1.tar.gz https://github.com/nikic/php-ast/archive/v0.1.1.tar.gz && \
-	tar -zxvf v0.1.1.tar.gz && \
-	cd php-ast-0.1.1 && \
+	wget -O v0.1.4.tar.gz https://github.com/nikic/php-ast/archive/v0.1.4.tar.gz && \
+	tar -zxvf v0.1.4.tar.gz && \
+	cd php-ast-0.1.4 && \
 	phpize7 && \
 	./configure --prefix=/usr --with-php-config=/usr/bin/php-config7 && \
 	make -j3 && \
 	make install && \
 	cd .. && \
-	rm -Rf php-ast-0.1.1 && \
+	rm -Rf php-ast-0.1.4 && \
 	apk del php7-dev \
 	autoconf \
 	make \
